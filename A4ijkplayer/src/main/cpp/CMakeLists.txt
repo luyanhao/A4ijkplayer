@@ -129,3 +129,31 @@ target_link_libraries( # Specifies the target library.
         OpenSLES
         m z
         )
+
+set(SOURCE_FILES_SOUNDTOUCH
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/Android-lib/jni/soundtouch-jni.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/AAFilter.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/FIFOSampleBuffer.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/FIRFilter.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/cpu_detect_x86.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/sse_optimized.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundStretch/WavFile.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/RateTransposer.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/SoundTouch.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/InterpolateCubic.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/InterpolateLinear.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/InterpolateShannon.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/TDStretch.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/BPMDetect.cpp
+        ${PATH_TO_A4_IJK_MEDIA}/ijksoundtouch/source/SoundTouch/PeakFinder.cpp
+)
+add_library(
+        soundtouch
+        SHARED
+        ${SOURCE_FILES_SOUNDTOUCH}
+)
+target_link_libraries( # Specifies the target library.
+        soundtouch
+        log
+        android
+)
