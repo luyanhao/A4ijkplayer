@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'com.alanwang4523.a4ijkplayerdemo'
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.alanwang4523.a4ijkplayerdemo"
         minSdk 21
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -21,9 +21,24 @@ android {
             }
         }
     }
+    signingConfigs {
+        release {
+            storeFile file("../keystore.jks")
+            storePassword 'rootroot'
+            keyAlias 'lyhao'
+            keyPassword 'rootroot'
+
+            v2SigningEnabled true
+        }
+    }
 
     buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+        }
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
