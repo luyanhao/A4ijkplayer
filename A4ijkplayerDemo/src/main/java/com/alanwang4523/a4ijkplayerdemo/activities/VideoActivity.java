@@ -82,7 +82,7 @@ public class VideoActivity extends AppCompatActivity implements TracksFragment.I
         mSettings = new Settings(this);
 
         // handle arguments
-        mVideoPath = getIntent().getStringExtra("videoPath");
+        mVideoPath = getIntent().getStringExtra("videoPath").split("#")[0];
 
         Intent intent = getIntent();
         String intentAction = intent.getAction();

@@ -17,8 +17,11 @@
 
 package com.alanwang4523.a4ijkplayerdemo.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
 
 import com.squareup.otto.Subscribe;
 
@@ -36,7 +39,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class FileExplorerActivity extends AppActivity {
     private Settings mSettings;
-
+    public static Intent newIntent(Context context) {
+        Intent intent = new Intent(context, FileExplorerActivity.class);
+        return intent;
+    }
+    public static void intentTo(Context context) {
+        context.startActivity(newIntent(context));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,5 +105,10 @@ public class FileExplorerActivity extends AppActivity {
         } else if (f.exists()) {
             VideoActivity.intentTo(this, f.getPath(), f.getName());
         }
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        return false;
     }
 }

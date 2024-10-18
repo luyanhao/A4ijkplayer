@@ -26,7 +26,7 @@ import android.view.MenuItem;
 
 import com.alanwang4523.a4ijkplayerdemo.R;
 import com.alanwang4523.a4ijkplayerdemo.activities.RecentMediaActivity;
-import com.alanwang4523.a4ijkplayerdemo.activities.SampleMediaActivity;
+import com.alanwang4523.a4ijkplayerdemo.activities.FileExplorerActivity;
 import com.alanwang4523.a4ijkplayerdemo.activities.SettingsActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -89,7 +89,7 @@ public class AppActivity extends AppCompatActivity {
         } else if (id == R.id.action_recent) {
             RecentMediaActivity.intentTo(this);
         } else if (id == R.id.action_sample) {
-            SampleMediaActivity.intentTo(this);
+            FileExplorerActivity.intentTo(this);
         }
 
         return super.onOptionsItemSelected(item);
