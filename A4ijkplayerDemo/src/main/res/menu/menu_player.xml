@@ -12,6 +12,10 @@
         android:title="@string/toggle_render"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/action_toggle_fullscreen"
+        android:title="全屏"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_toggle_ratio"
         android:title="@string/toggle_ratio"
         app:showAsAction="ifRoom" />

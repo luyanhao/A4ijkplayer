@@ -20,6 +20,7 @@ package com.alanwang4523.a4ijkplayerdemo.activities;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -34,6 +35,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -179,10 +181,28 @@ public class VideoActivity extends AppCompatActivity implements TracksFragment.I
         return true;
     }
 
+    private boolean isFullScreen = false;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_toggle_ratio) {
+        if (id == R.id.action_toggle_fullscreen) {
+            if(getRequestedOrientation()!= ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED){
+                item.setTitle("全屏");
+                View decorView = getWindow().getDecorView();
+                int uiOptions = View.SYSTEM_UI_FLAG_VISIBLE;
+                decorView.setSystemUiVisibility(uiOptions);
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+                mHudView.setVisibility(View.VISIBLE);
+            } else {
+                View decorView = getWindow().getDecorView();
+                int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+                decorView.setSystemUiVisibility(uiOptions);
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                item.setTitle("竖屏");
+                mHudView.setVisibility(View.GONE);
+            }
+            return true;
+        } else if (id == R.id.action_toggle_ratio) {
             int aspectRatio = mVideoView.toggleAspectRatio();
             String aspectRatioText = MeasureHelper.getAspectRatioText(this, aspectRatio);
             mToastTextView.setText(aspectRatioText);
