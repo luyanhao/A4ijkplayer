@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'com.alanwang4523.a4ijkplayerdemo'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.alanwang4523.a4ijkplayerdemo"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -33,6 +33,9 @@ android {
     }
 
     buildTypes {
+        profile {
+            initWith debug
+        }
         debug {
             signingConfig signingConfigs.release
             minifyEnabled false
@@ -61,4 +64,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    debugImplementation 'com.example.module1:flutter_debug:1.0'
+    profileImplementation 'com.example.module1:flutter_profile:1.0'
+    releaseImplementation 'com.example.module1:flutter_release:1.0'
 }

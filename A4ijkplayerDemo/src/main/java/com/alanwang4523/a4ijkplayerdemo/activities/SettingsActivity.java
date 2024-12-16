@@ -20,12 +20,17 @@ package com.alanwang4523.a4ijkplayerdemo.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
 import com.alanwang4523.a4ijkplayerdemo.R;
 import com.alanwang4523.a4ijkplayerdemo.fragments.SettingsFragment;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import io.flutter.embedding.android.FlutterActivity;
 
 public class SettingsActivity extends AppCompatActivity {
     public static Intent newIntent(Context context) {
@@ -37,10 +42,16 @@ public class SettingsActivity extends AppCompatActivity {
         context.startActivity(newIntent(context));
     }
 
+    public void openFlutter(View view) {
+        Toast.makeText(this, "openFlutter", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, FlutterActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app);
+        setContentView(R.layout.activity_setting);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
