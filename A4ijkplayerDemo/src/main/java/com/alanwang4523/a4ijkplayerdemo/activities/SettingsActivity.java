@@ -52,6 +52,11 @@ public class SettingsActivity extends AppCompatActivity {
                 .build(this);
         startActivity(intent);
     }
+    public void openFlutterFragment(View view) {
+        Toast.makeText(this, "openFlutterFragment", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, FlutterFragmentAct.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

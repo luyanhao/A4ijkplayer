@@ -5,19 +5,11 @@
     android:orientation="vertical"
     tools:context=".activities.FileExplorerActivity">
 
-    <include layout="@layout/widget_toolbar" />
     <Button
+        android:text="测试按钮"
+        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="打开flutter"
-        android:onClick="openFlutter"
-        android:layout_gravity="center_horizontal"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="打开FlutterFragment"
-        android:onClick="openFlutterFragment"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_height="wrap_content"/>
     <FrameLayout
         android:id="@+id/body"
         android:layout_width="match_parent"

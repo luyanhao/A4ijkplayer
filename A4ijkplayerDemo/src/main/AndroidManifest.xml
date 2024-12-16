@@ -77,6 +77,8 @@
             android:hardwareAccelerated="true"
             android:theme="@style/Theme.AppCompat.Light"
             android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".activities.FlutterFragmentAct"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
         <service
             android:name=".services.MediaPlayerService"
             android:enabled="false"
