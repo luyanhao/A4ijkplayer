@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.alanwang4523.a4ijkplayerdemo.R;
+import com.alanwang4523.a4ijkplayerdemo.application.MyFlutterEngine;
 import com.alanwang4523.a4ijkplayerdemo.fragments.SettingsFragment;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -44,7 +45,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void openFlutter(View view) {
         Toast.makeText(this, "openFlutter", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, FlutterActivity.class);
+        Intent intent = FlutterActivity
+                .withCachedEngine(MyFlutterEngine.getEngineId(this, null))
+                .build(this);
         startActivity(intent);
     }
 
