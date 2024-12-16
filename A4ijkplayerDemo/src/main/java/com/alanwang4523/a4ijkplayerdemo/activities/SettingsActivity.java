@@ -32,6 +32,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import io.flutter.embedding.android.FlutterActivity;
+import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 
 public class SettingsActivity extends AppCompatActivity {
     public static Intent newIntent(Context context) {
@@ -47,6 +48,7 @@ public class SettingsActivity extends AppCompatActivity {
         Toast.makeText(this, "openFlutter", Toast.LENGTH_SHORT).show();
         Intent intent = FlutterActivity
                 .withCachedEngine(MyFlutterEngine.getEngineId(this, null))
+                .backgroundMode(FlutterActivityLaunchConfigs.BackgroundMode.transparent)
                 .build(this);
         startActivity(intent);
     }
