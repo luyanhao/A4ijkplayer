@@ -6,6 +6,6 @@ public class MyApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        MyFlutterEngine.init(this, null);
+        MyFlutterEngine.init(this, "/detail");
     }
 }

@@ -23,6 +23,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter module1 Home Page'),
+      routes: {
+        '/detail': (context) => Detail(),
+      },
     );
   }
 }
@@ -97,12 +100,13 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('跳到详情页面'),
               onPressed: (){
                 //跳转页面
-                Navigator.of(context).push(
-                    MaterialPageRoute(
-                      //没有传值
-                        builder: (context)=>Detail()
-                    )
-                );
+                // Navigator.of(context).push(
+                //     MaterialPageRoute(
+                //       //没有传值
+                //         builder: (context)=>Detail()
+                //     )
+                // );
+                Navigator.pushNamed(context, "/detail");
               },
             ),
             const Text(
