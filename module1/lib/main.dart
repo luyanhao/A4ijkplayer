@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Detail.dart';
 
 void main() => runApp(const MyApp());
 
@@ -92,6 +93,18 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            ElevatedButton(
+              child: Text('跳到详情页面'),
+              onPressed: (){
+                //跳转页面
+                Navigator.of(context).push(
+                    MaterialPageRoute(
+                      //没有传值
+                        builder: (context)=>Detail()
+                    )
+                );
+              },
+            ),
             const Text(
               'You have pushed the button this many times:',
             ),
